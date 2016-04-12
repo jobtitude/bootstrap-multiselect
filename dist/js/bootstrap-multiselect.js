@@ -1016,6 +1016,7 @@
             // Build filter if filtering OR case insensitive filtering is enabled and the number of options exceeds (or equals) enableFilterLength.
             if (this.options.enableFiltering || this.options.enableCaseInsensitiveFiltering) {
                 var enableFilterLength = Math.max(this.options.enableFiltering, this.options.enableCaseInsensitiveFiltering);
+                var enableFilter = this.options.enableFiltering;
 
                 if (this.$select.find('option').length >= enableFilterLength) {
 
@@ -1040,7 +1041,7 @@
                         event.stopPropagation();
                     }).on('input keydown', $.proxy(function(event) {
                         // Cancel enter key default behaviour
-                        if (event.which === 13) {
+                        if (event.which === 13 || enableFilter == 'fake') {
                           event.preventDefault();
                         }
                         
