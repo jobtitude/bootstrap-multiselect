@@ -1128,6 +1128,15 @@
             this.$select.show();
             this.$select.data('multiselect', null);
         },
+        
+        /**
+         * Refreshes the multiselect options based on the option of the select element.
+         */
+        refreshOptions: function () {
+            this.$ul.children('li').not('.filter').remove();
+            this.buildDropdownOptions();
+            this.updateVisibilityByFilter();
+        },
 
         /**
          * Refreshs the multiselect based on the selected options of the select.
