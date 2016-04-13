@@ -251,6 +251,9 @@
                         return this.allSelectedText;
                     }
                 }
+                else if (!this.nSelectedText) {
+                    return this.nonSelectedText;
+                }
                 else if (options.length > this.numberDisplayed) {
                     return options.length + ' ' + this.nSelectedText;
                 }
